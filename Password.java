@@ -33,6 +33,7 @@ public class Password {
         }
 
         }
+//        加密功能
         public static String encryptPassword(String password) {
             StringBuilder encryptedPassword = new StringBuilder();
             int length = password.length();
@@ -44,7 +45,6 @@ public class Password {
                 encryptedPassword.append((char) ascii);
             }
 
-
             char firstChar = encryptedPassword.charAt(0);
             char lastChar = encryptedPassword.charAt(length - 1);
             encryptedPassword.setCharAt(0, lastChar);
@@ -52,7 +52,7 @@ public class Password {
             StringBuilder reversedPassword = encryptedPassword.reverse(); // 反转字符串
             return reversedPassword.toString();
         }
-
+//        解密功能
         public static String decryptPassword(String encryptedPassword) {
             StringBuilder reversedPassword = new StringBuilder(encryptedPassword);
 
