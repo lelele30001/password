@@ -14,7 +14,6 @@ public class Password {
                  System.out.println("2.解密");
                  System.out.println("3.判断密码强度");
                  System.out.println("4.密码生成");
-                 System.out.println("5.退出");
                  int choice = scanner.nextInt();
                  scanner.nextLine();
 
@@ -58,7 +57,7 @@ public class Password {
 
             for (int i = 0; i < length; i++) {
                 char ch = password.charAt(i);
-                int ascii = (int) ch + i + 1 + 3; // 加上位置和偏移值
+                int ascii = (int) ch + i + 1 + 3; // （1）加上位置和偏移值
 
                 encryptedPassword.append((char) ascii);
             }
@@ -66,8 +65,8 @@ public class Password {
             char firstChar = encryptedPassword.charAt(0);
             char lastChar = encryptedPassword.charAt(length - 1);
             encryptedPassword.setCharAt(0, lastChar);
-            encryptedPassword.setCharAt(length - 1, firstChar); // 调换第一位和最后一位
-            StringBuilder reversedPassword = encryptedPassword.reverse(); // 反转字符串
+            encryptedPassword.setCharAt(length - 1, firstChar); // （2）调换第一位和最后一位
+            StringBuilder reversedPassword = encryptedPassword.reverse(); // （3）反转字符串
             return reversedPassword.toString();
         }
 //        解密功能
@@ -90,7 +89,7 @@ public class Password {
 
             return originalPassword.toString();
         }
-        //判断强度
+        //判断密码强度
         public static String checkPasswordStrength(String password) {
             if (password.length() < 8 || isOnlyOneType(password)) {
                 return "弱强度";
@@ -151,7 +150,6 @@ public class Password {
             return password.toString();
         }
 }
-
 
 
 
